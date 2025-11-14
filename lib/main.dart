@@ -7,7 +7,9 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => TodolistProvider()),
+        ChangeNotifierProvider(
+          create: (context) => TodolistProvider()..loadData(),
+        ),
       ],
       child: ToDolIstLite(),
     ),
