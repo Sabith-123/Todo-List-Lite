@@ -89,7 +89,9 @@ class TodoTile extends StatelessWidget {
                     decoration: checkboxvalueTRFA!
                         ? TextDecoration.lineThrough
                         : TextDecoration.none,
-                    color: const Color.fromARGB(226, 0, 0, 0),
+                    color: checkboxvalueTRFA!
+                        ? Colors.red
+                        : const Color.fromARGB(226, 0, 0, 0),
                   ),
                 ),
               ),
@@ -106,10 +108,16 @@ class TodoTile extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 5),
-                InkWell(
-                  onTap: editontap,
-                  child: Icon(Icons.edit, color: updatepencilColor, size: 24),
-                ),
+                checkboxvalueTRFA!
+                    ? SizedBox()
+                    : InkWell(
+                        onTap: editontap,
+                        child: Icon(
+                          Icons.edit,
+                          color: updatepencilColor,
+                          size: 24,
+                        ),
+                      ),
               ],
             ),
           ],
